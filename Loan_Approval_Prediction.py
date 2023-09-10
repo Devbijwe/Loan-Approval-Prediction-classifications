@@ -3,8 +3,7 @@ import numpy as np
 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestClassifier
-
+from sklearn.svm import SVC
 
 def preprocess_and_predict():
     df = pd.read_csv('loan_prediction.csv')
@@ -75,7 +74,7 @@ def preprocess_and_predict():
     X_train[numerical_cols] = scaler.fit_transform(X_train[numerical_cols])
     X_test[numerical_cols] = scaler.transform(X_test[numerical_cols])
 
-    from sklearn.svm import SVC
+    
     model = SVC(random_state=42)
     model.fit(X_train, y_train)
 
